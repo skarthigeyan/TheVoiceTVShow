@@ -1,0 +1,56 @@
+<div class="container">
+  The Voice TV Show - Mentor View
+
+  <div class="panel panel-default" *ngFor='let teams of mentorServices; let k = index'>
+    <div class="panel-heading">
+      <h4 class="panel-title">
+          <h3 class="left">
+              {{teams.teamName}}
+          </h3>
+      </h4>
+    </div>
+    <div *ngFor='let member of teams.teamMembers; let i = index'>
+      <div class="panel-heading teamMember">
+        <h4 class="panel-title">
+            <h3 data-toggle="collapse" [attr.data-target]="'#' +k+i" class="left">
+                {{member.name}}
+                <span class="glyphicon glyphicon-collapse-up pull-right"></span>
+            </h3>
+        </h4>
+      </div>
+      <div id="{{k}}{{i}}" class="teamActivity panel-collapse collapse out">
+        <div class="panel-body" *ngFor='let activity of member.activities;'>
+            <div class="col-md-12 row">
+              <div class="col-md-offset-1 col-md-4">Name Of the Song</div>
+              <div class="col-md-4">{{activity.nameOfTheSong}}</div>
+            </div>
+            <div class="col-md-12 row">
+              <div class="col-md-offset-1 col-md-4">Date Of Performance</div>
+              <div class="col-md-4">{{activity.date}}</div>
+            </div>
+            <div class="col-md-12 row">
+              <div class="col-md-offset-1 col-md-4">Mentor 1 Score</div>
+              <div class="col-md-4">{{activity.mentor1Score}}</div>
+            </div>
+            <div class="col-md-12 row">
+              <div class="col-md-offset-1 col-md-4">Mentor 2 Score</div>
+              <div class="col-md-4">{{activity.mentor2Score}}</div>
+            </div>
+            <div class="col-md-12 row">
+              <div class="col-md-offset-1 col-md-4">Mentor 3 score</div>
+              <div class="col-md-4">{{activity.mentor3Score}}</div>
+            </div>
+            <div class="col-md-12 row">
+              <div class="col-md-offset-1 col-md-4">Average Score</div>
+              <div class="col-md-4">{{activity.averageScore}}</div>
+            </div>                                    
+        </div>
+      </div>
+    </div>
+    <div class="row teamAverage">
+      <div class="col-md-4 col-md-offset-1">{{teams.teamName}}'s Average Score</div>
+      <div class="col-md-4">{{teams.teamAverageScore}}</div>
+    </div>
+  </div>
+</div>
+
